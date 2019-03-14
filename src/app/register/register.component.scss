@@ -1,0 +1,16 @@
+section {
+  width: 420px;
+}
+
+mat-form-field {
+  display: block;
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}
+
+button:not(:last-child) {
+  margin-bottom: 12px;
+}

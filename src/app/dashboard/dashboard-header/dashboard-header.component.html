@@ -1,0 +1,21 @@
+<nav>
+  <ul id="not-small">
+    <div class="d-flex justify-content-between">
+      <div>
+        <li (click)="navigate('/')"><button mat-button>Home</button></li>
+        <li (click)="navigate('/market')"><button mat-button>Market</button></li>
+        <li *ngIf="auth.loggedIn()" (click)="navigate('/dash/designs')"><button mat-button>Dashboard</button></li>
+      </div>
+      
+      <div>
+        <li *ngIf="auth.loggedIn()" (click)="auth.logout()"><button mat-button>Logout</button></li>
+        <li *ngIf="!auth.loggedIn()" (click)="navigate('/login')"><button mat-button>Login</button></li>
+        <li *ngIf="!auth.loggedIn()" (click)="navigate('/signup')"><button mat-button>Signup</button></li>
+      </div>
+    </div>
+  </ul>
+
+  <ul id="only-small">
+    <i (click)="drawer.toggle()" class="material-icons" id="hamburger">menu</i>
+  </ul>
+</nav>

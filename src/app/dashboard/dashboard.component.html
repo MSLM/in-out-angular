@@ -1,0 +1,28 @@
+<div class="content-container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="toolbar d-flex justify-content-between">
+    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h4>Member Dashboard</h4>
+    <button 
+      mat-icon-button
+      (click)="showAccountCard()" 
+      class="cursor text-opacity"><mat-icon>settings</mat-icon></button>
+  </mat-toolbar>
+    
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav 
+      #sidenav 
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      [opened]="true">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/scheduling">Scheduling</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>      
+      <div [ngClass]="{ 'mobile-padding': mobileQuery.matches }" class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

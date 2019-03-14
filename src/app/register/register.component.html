@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="vh-95 row">
+    <div class="col d-flex align-items-center justify-content-center">
+      <section>
+        <mat-card>
+          <h1 class="singleton-card-header">Register</h1>
+
+          <form [formGroup]="registerForm" (submit)="register()">
+            <mat-form-field [appearance]="environment.MAT_FORM_FIELD_APPEARANCE">
+              <input 
+                matInput
+                formControlName="email" 
+                type="email"
+                placeholder="Email">
+            </mat-form-field>
+  
+            <!-- Code here! -->
+          </form>
+        </mat-card>
+      </section>
+    </div>
+  </div>
+</div>

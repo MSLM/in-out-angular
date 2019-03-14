@@ -1,0 +1,54 @@
+@import '../../../colors.scss';
+@import '../../../mixins.scss';
+
+nav {
+  #not-small {
+    background-color: #001521;
+    display: none;
+    font-family: 'Sarala';
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    li {
+      color: $white;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+
+    @media (min-width: 800px) {
+      display: block;
+    }
+  }
+
+  #only-small {
+    display: none;
+    height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    @media (max-width: 799px) {
+      display: block;
+    }
+  }
+}
+
+ul,
+li {
+  display: inline;
+}
+
+#hamburger {
+  background-color: rgba(255, 255, 255, 0.3333);
+  border-radius: 2px;
+  color: #001521;
+  cursor: pointer;
+  @include icon-size(38px);
+  right: 30px;
+  position: fixed;
+  top: 30px;
+  z-index: 9;
+}

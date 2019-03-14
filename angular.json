@@ -27,6 +27,10 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "src/theme.scss"
+              },
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
               "src/styles.scss"
             ],
             "scripts": [],

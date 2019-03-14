@@ -1,0 +1,55 @@
+mat-toolbar {
+  h4 {
+    font-size: 1.333rem;
+    font-weight: 400;
+  }
+}
+
+mat-sidenav {
+  border: none;
+  z-index: 99 !important;
+}
+
+mat-sidenav-content {
+  background: #eee;
+  height: 100%;
+}
+
+mat-nav-list {
+  padding-top: 0;
+
+  @media (max-width: 600px) {
+    padding-top: 56px;
+  }
+
+  a {
+    width: 180px;
+  }
+}
+
+.mobile-padding {
+  padding-top: 60px;
+}
+
+.content-container {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.is-mobile .sidenav-container {
+  flex: 1 0 auto;
+}
