@@ -38,7 +38,7 @@ export class RestService {
    * @param {*} [body=null]
    * @returns {Promise<any>}
    */
-  protected generateHttpPromise(httpMethod: string, url: string, body = null): Promise<HttpPromiseResponse> {
+  protected generateHttpPromise(httpMethod: string, url: string, body = null): Promise<any> {
     let promise: Promise<any> = null;
 
     if (body) {
@@ -70,7 +70,7 @@ export class RestService {
    * @param  {any}          body
    * @return {Promise<any>}
    */
-  post(url: string, body: any): Promise<HttpPromiseResponse> {
+  post(url: string, body: any): Promise<any> {
     return this.generateHttpPromise('post', url, body);
   }
 
@@ -79,7 +79,7 @@ export class RestService {
    * @param  {string}       url
    * @return {Promise<any>}
    */
-  get(url: string): Promise<HttpPromiseResponse> {
+  get(url: string): Promise<any> {
     return this.generateHttpPromise('get', url);
   }
 
@@ -88,7 +88,7 @@ export class RestService {
    * @param  {string}       url
    * @return {Promise<any>}
    */
-  delete(url: string): Promise<HttpPromiseResponse> {
+  delete(url: string): Promise<any> {
     return this.generateHttpPromise('delete', url);
   }
 
@@ -98,7 +98,7 @@ export class RestService {
    * @param  {any}          body
    * @return {Promise<any>}
    */
-  put(url: string, body: any): Promise<HttpPromiseResponse> {
+  put(url: string, body: any): Promise<any> {
     return this.generateHttpPromise('put', url, body);
   }
 

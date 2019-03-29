@@ -29,8 +29,8 @@ const routes: Routes = [
       },
       {
         path: 'scheduling',
-        loadChildren: './scheduling/scheduling.module#SchedulingModule'
-        // This needs a guard!
+        loadChildren: './scheduling/scheduling.module#SchedulingModule',
+        canActivate: [AuthGuard]
       }
     ]
   }

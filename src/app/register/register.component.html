@@ -9,12 +9,65 @@
             <mat-form-field [appearance]="environment.MAT_FORM_FIELD_APPEARANCE">
               <input 
                 matInput
+                formControlName="fname" 
+                type="text"
+                placeholder="First name">
+            </mat-form-field>
+
+            <mat-form-field [appearance]="environment.MAT_FORM_FIELD_APPEARANCE">
+              <input 
+                matInput
+                formControlName="lname" 
+                type="text"
+                placeholder="Last name">
+            </mat-form-field>
+
+            <mat-form-field [appearance]="environment.MAT_FORM_FIELD_APPEARANCE">
+              <input 
+                matInput
                 formControlName="email" 
                 type="email"
                 placeholder="Email">
             </mat-form-field>
+
+            <mat-form-field [appearance]="environment.MAT_FORM_FIELD_APPEARANCE">
+              <input 
+                matInput
+                formControlName="password" 
+                type="password"
+                placeholder="Password">
+            </mat-form-field>
   
-            <!-- Code here! -->
+            <mat-form-field [appearance]="environment.MAT_FORM_FIELD_APPEARANCE">
+              <input 
+                matInput
+                formControlName="retypePassword" 
+                type="password"
+                placeholder="Retype your password">
+            </mat-form-field>
+
+            <div class="row">
+              <div class="col d-flex justify-content-center">
+                <mat-spinner 
+                  *ngIf="registering"
+                  mode="indeterminate"
+                  [diameter]="40"></mat-spinner>
+              </div>
+            </div>
+
+            <ng-container *ngIf="!registering">
+              <button 
+                (click)="register()"
+                mat-raised-button
+                [disabled]="!registerForm.valid && !passwordsMatch()"
+                color="primary">Register</button>
+  
+              <button
+                mat-stroked-button
+                color="accent"
+                routerLink="/login"
+                type="button">Log in</button>
+            </ng-container>
           </form>
         </mat-card>
       </section>

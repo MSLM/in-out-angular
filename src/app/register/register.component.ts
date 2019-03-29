@@ -25,8 +25,11 @@ export class RegisterComponent implements OnInit {
     private readonly router: Router
   ) {
     this.registerForm = this.fb.group({
+      fname: [null, [Validators.required]],
+      lname: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required]]
+      password: [null, [Validators.required]],
+      retypePassword: [null, [Validators.required]]
     });
   }
 
@@ -34,11 +37,11 @@ export class RegisterComponent implements OnInit {
     this.auth.logout();
   }
 
-  login() {
+  register() {
     this.registering = true;
 
     this.rest
-      .post(`${environment.apiUrl}/auth`, this.registerForm.value)
+      .post(`${environment.apiUrl}/user/register`, this.registerForm.value)
       .then(res => {
         this.auth.setToken(res.data.jwt);
         this.auth.setExpires(res.data.expires);
@@ -47,5 +50,15 @@ export class RegisterComponent implements OnInit {
       .catch(() => {
         this.registering = false;
       });
+  }
+
+  passwordsMatch(): boolean {
+    const form = this.registerForm.value;
+
+    if (form.password === form.retypePassword) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

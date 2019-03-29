@@ -1,0 +1,24 @@
+<form [formGroup]="blockForm">
+  <mat-form-field>
+    <input 
+      matInput
+      formControlName="timeIn"
+      type="text"
+      placeholder="Time in">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input 
+      matInput
+      formControlName="timeOut"
+      type="text"
+      placeholder="Time out">
+  </mat-form-field>
+
+  <button
+    *ngIf="showButton"
+    mat-flat-button
+    color="primary"
+    (click)="addBlock()"
+    >Add</button>
+</form>

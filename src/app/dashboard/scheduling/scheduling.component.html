@@ -1,1 +1,9 @@
-<!-- Code goes here -->
+<h3>Scheduling</h3>
+
+<schedule-block 
+  (addedBlock)="handleAddedBlock($event)"
+  [showButton]="true"></schedule-block>
+
+<schedule-block
+  *ngFor="let block of blocks"
+  (addedBlock)="handleAddedBlock($event)"></schedule-block>

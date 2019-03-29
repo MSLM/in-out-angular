@@ -38,11 +38,15 @@ export class LoginComponent implements OnInit {
     this.authenticating = true;
 
     this.rest
-      .post(`${environment.apiUrl}/auth`, this.loginForm.value)
+      .post(`${environment.apiUrl}/user/auth`, this.loginForm.value)
       .then(res => {
-        this.auth.setToken(res.data.jwt);
-        this.auth.setExpires(res.data.expires);
-        this.router.navigate(['/dashboard']);
+        this.auth.setToken(res.jwt);
+        this.auth.setExpires(res.expires);
+        this.auth.setUser({
+          fname: res.user.fname,
+          lname: res.user.lname
+        });
+        this.router.navigate(['/scheduling']);
       })
       .catch(() => {});
   }

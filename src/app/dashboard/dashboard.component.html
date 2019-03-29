@@ -1,7 +1,7 @@
 <div class="content-container" [class.is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="toolbar d-flex justify-content-between">
     <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h4>Member Dashboard</h4>
+    <h4>{{ header }}</h4>
     <button 
       mat-icon-button
       (click)="showAccountCard()" 

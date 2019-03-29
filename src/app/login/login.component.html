@@ -14,7 +14,36 @@
                 placeholder="Email">
             </mat-form-field>
 
-            <!-- Code here! -->
+            <mat-form-field [appearance]="environment.MAT_FORM_FIELD_APPEARANCE">
+              <input 
+                matInput
+                formControlName="password" 
+                type="password"
+                placeholder="Password">
+            </mat-form-field>
+
+            <div class="row">
+              <div class="col d-flex justify-content-center">
+                <mat-spinner 
+                  *ngIf="authenticating"
+                  mode="indeterminate"
+                  [diameter]="40"></mat-spinner>
+              </div>
+            </div>
+
+            <ng-container *ngIf="!authenticating">
+              <button 
+                (click)="login()"
+                mat-raised-button 
+                color="primary"
+                type="submit">Login</button>
+  
+              <button
+                mat-stroked-button
+                color="accent"
+                routerLink="/register"
+                type="button">Register</button>
+            </ng-container>
           </form>
         </mat-card>
       </section>

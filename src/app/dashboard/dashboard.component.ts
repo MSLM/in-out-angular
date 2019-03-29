@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, EventEmitter, Output, Inject } from '@angular/core';
+import { Component, ChangeDetectorRef, EventEmitter, Output, Inject, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
@@ -9,23 +9,30 @@ import { Auth } from '../services/auth.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   constructor(
     public readonly changeDetectorRef: ChangeDetectorRef,
     public readonly media: MediaMatcher,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+    private readonly auth: Auth
   ) {
     this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
     this.mobileQuery.addListener(this.mobileQueryListener);
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
   }
 
-  mobileQuery: MediaQueryList;
+  public mobileQuery: MediaQueryList;
+
+  public header: string = '';
 
   private mobileQueryListener: () => void;
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
+  }
+
+  ngOnInit() {
+    this.header = 'Hello ' + this.auth.getUser().fname;
   }
 
   showAccountCard(): void {

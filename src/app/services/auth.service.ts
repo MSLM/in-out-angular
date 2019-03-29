@@ -6,10 +6,15 @@ export class Auth {
   public token: string = '';
   public expires: number = -1;
   public role: number = -1;
+  public user: {
+    fname: string;
+    lname: string;
+  } = null;
 
   private tokenIdentifier: string = 'vw_jwt_19';
   private expiresIdentifier: string = 'vw_exp_19';
   private roleIdentifier: string = 'vw_role_19';
+  private userIdentifier: string = 'vw_user_19';
 
   constructor(public readonly router: Router) {}
 
@@ -86,5 +91,21 @@ export class Auth {
 
     localStorage.removeItem(this.tokenIdentifier);
     localStorage.removeItem(this.expiresIdentifier);
+  }
+
+  setUser(user: { fname: string; lname: string }): void {
+    localStorage.setItem(this.userIdentifier, JSON.stringify(user));
+    this.user = user;
+  }
+
+  getUser(): {
+    fname: string;
+    lname: string;
+  } {
+    if (localStorage.getItem(this.userIdentifier)) {
+      this.user = JSON.parse(localStorage.getItem(this.userIdentifier));
+    }
+
+    return this.user;
   }
 }
