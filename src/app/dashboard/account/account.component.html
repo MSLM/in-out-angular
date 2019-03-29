@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <mat-card style="margin-top: 100px;">
+        <h1>Reset Password</h1>
+
+        <form [formGroup]="passwordForm">
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input 
+              matInput
+              formControlName="password"
+              type="text">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input 
+              matInput
+              formControlName="retypePassword"
+              type="text"
+              placeholder="Re-type your password">
+          </mat-form-field>
+        
+          <button 
+            *ngIf="!resetting"
+            mat-raised-button 
+            (click)="resetPassword()"
+            color="primary"
+            class="w-100"
+            type="button">Submit</button>
+
+          <div *ngIf="resetting" class="row">
+            <div class="col d-flex justify-content-center">
+              <mat-spinner 
+                mode="indeterminate"
+                [diameter]="40"></mat-spinner>
+            </div>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

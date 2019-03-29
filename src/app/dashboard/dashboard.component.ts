@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.header = 'Hello ' + this.auth.getUser().fname;
+    this.header = 'Hello, ' + this.auth.getUser().fname;
   }
 
   showAccountCard(): void {

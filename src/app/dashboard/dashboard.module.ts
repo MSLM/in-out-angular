@@ -31,6 +31,11 @@ const routes: Routes = [
         path: 'scheduling',
         loadChildren: './scheduling/scheduling.module#SchedulingModule',
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'account',
+        loadChildren: './account/account.module#AccountModule',
+        canActivate: [AuthGuard]
       }
     ]
   }
